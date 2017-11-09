@@ -5,26 +5,18 @@
 @section('content')
     <div class="container">
 
-        <p>
-            {{ link_to_action('PizzaController@create', 'Crear una pizza', [], [])  }}
-            |
-            {{ link_to_action('PizzaController@index', 'Mis pizzas', [], [])  }}
-        </p>
+        @include('partials.nav')
 
         <hr/>
 
-         @if(session('message'))
-             <div class="alert alert-success">
-                 {{ session('message') }}
-             </div>
-         @endif
+        @include('partials.flash')
 
         @forelse($pizzas as $pizza)
 
                 <div class="panel panel-default">
 
                     <div class="panel-heading">{{ $pizza->name }}</div>
-                    <div class="body">
+                    <div class="panel-body">
                         <p>Precio: {{ $pizza->price }}</p>
                         {{ $pizza->description }}
                     </div>
