@@ -74,6 +74,11 @@ class PizzaController extends Controller
         //
     }
 
+    public function restore($id)
+    {
+        // TODO restaurar el estado de una pizza
+    }
+
     /**
      * Remove the specified resource from storage.
      *

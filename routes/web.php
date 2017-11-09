@@ -22,4 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function()
 {
     Route::resource('pizzas', 'PizzaController');
+    Route::patch('pizzas/{id}/restore', 'PizzaController@restore')->name('pizzas.restore');
 });
