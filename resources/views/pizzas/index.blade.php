@@ -30,8 +30,41 @@
                     </div>
 
                     <div class="panel-footer">
+                        {{
+                            link_to_action(
+                            'PizzaController@edit',
+                            'Editar',
+                            ['id' => $pizza->id],
+                            ['class' => 'col-md-2']
+                            )
+                        }}
 
+                        @if($pizza->trashed())
+                            {!! form::open(
+                                    [
+                                        'method' => 'PATCH',
+                                        'route' => ['pizzas.restore', $pizza->id]
+                                    ]
+                            ) !!}
+
+                            {!! Form::submit('Restaurar', ['class' => 'btn btn-xs btn-warning col-md-2']) !!}
+
+                            {!! Form::close() !!}
+                        @endif
                     </div>
+
+                    <span class="pull-right">
+                        {!! Form::open(
+                                    [
+                                    'method' => 'DELETE',
+                                    'route' => ['pizzas.destroy', $pizza->id]
+                                    ]
+                        ) !!}
+
+                        {!! Form::submit('Eliminar', ['class' => 'btn btn-xs btn-danger']) !!}
+
+                        {!! Form::close() !!}
+                    </span>
 
                 </div>
 
