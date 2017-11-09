@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pizza;
 use Illuminate\Http\Request;
 
 class PizzaController extends Controller
@@ -13,7 +14,9 @@ class PizzaController extends Controller
      */
     public function index()
     {
-        //
+        return view('pizzas.index', [
+            'pizzas' => Pizza::withTrashed()->where('user_id', auth()->user()->id)->paginate(2)
+        ]);
     }
 
     /**

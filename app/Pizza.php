@@ -21,7 +21,7 @@ class Pizza extends Model
 
     public function ingredients()
     {
-        return $this->getBelongsToMany(Ingredient::class)
+        return $this->getBelongsToMany(Ingredient::class);
     }
 
 }
