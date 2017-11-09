@@ -26,7 +26,7 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pizzas.create', ['pizza' => new Pizza]);
     }
 
     /**
@@ -37,7 +37,7 @@ class PizzaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->input());
     }
 
     /**
