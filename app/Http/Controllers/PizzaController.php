@@ -37,7 +37,20 @@ class PizzaController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->input());
+        $this->validate(
+            $request,
+            [
+                'name' => 'required|unique:pizzas|max:255',
+                'price' => 'required',
+                'description' => 'required'
+            ],
+            [
+                'name.required' => 'El nombre de la pizza es requerido',
+                'name.unique' => 'Esa pizza ya existe!',
+                'price.required' => 'El precio de la pizza es requerido',
+                'description.required' => 'La descripción de la pizza es requerida'
+            ]
+        );
     }
 
     /**
