@@ -75,5 +75,9 @@
 
         @endforelse
 
+        @if($pizzas)
+            {{ $pizzas->links() }}
+        @endif
+
     </div>
 @endsection
