@@ -110,7 +110,8 @@ class PizzaController extends Controller
 
     public function restore($id)
     {
-        // TODO restaurar el estado de una pizza
+        Pizza::withTrashed()->find($id)->restore();
+        return redirect('pizzas')->with('message', 'Pizza restaurada...');
     }
 
     /**
