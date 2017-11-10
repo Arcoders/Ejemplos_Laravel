@@ -21,7 +21,7 @@
                         {{ $pizza->description }}
                     </div>
 
-                    <div class="panel-footer">
+                    <div class="panel">
                         {{
                             link_to_action(
                             'PizzaController@edit',
@@ -43,9 +43,8 @@
 
                             {!! Form::close() !!}
                         @endif
-                    </div>
 
-                    <span class="pull-right">
+                        <span class="pull-right">
                         {!! Form::open(
                                     [
                                     'method' => 'DELETE',
@@ -53,10 +52,12 @@
                                     ]
                         ) !!}
 
-                        {!! Form::submit('Eliminar', ['class' => 'btn btn-xs btn-danger']) !!}
+                            {!! Form::submit('Eliminar', ['class' => 'btn btn-xs btn-danger']) !!}
 
-                        {!! Form::close() !!}
+                            {!! Form::close() !!}
                     </span>
+
+                    </div>
 
                 </div>
 

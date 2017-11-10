@@ -75,7 +75,8 @@ class PizzaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pizza = Pizza::findOrFail($id);
+        return view('pizzas.edit', ['pizza' => $pizza]);
     }
 
     /**
