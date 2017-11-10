@@ -102,6 +102,10 @@ class PizzaController extends Controller
                 'description.required' => 'La descripción de la pizza es requerida'
             ]
         );
+
+        $pizza = Pizza::find($id);
+        $pizza->fill($request->all())->save();
+        return redirect('pizzas')->with('message', 'Pizza actualizada...');
     }
 
     public function restore($id)
