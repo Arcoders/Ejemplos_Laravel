@@ -24,3 +24,8 @@ Route::group(['middleware' => 'auth'], function()
     Route::resource('pizzas', 'PizzaController');
     Route::patch('pizzas/{id}/restore', 'PizzaController@restore')->name('pizzas.restore');
 });
+
+Route::group(['middleware' => 'admin', 'prefix' => 'administration'], function()
+{
+    Route::get('/', 'AdminController@index')->name('admin.panel');
+});
