@@ -51,6 +51,9 @@ class PizzaController extends Controller
                 'description.required' => 'La descripción de la pizza es requerida'
             ]
         );
+        $request->request->add(['user_id' => auth()->user()->id]);
+        Pizza::create($request->input());
+        return redirect('pizzas')->with('message', 'Pizza creada...');
     }
 
     /**
