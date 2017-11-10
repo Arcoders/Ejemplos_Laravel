@@ -32,7 +32,7 @@
                         }}
 
                         @if($pizza->trashed())
-                            {!! form::open(
+                            {!! Form::open(
                                     [
                                         'method' => 'PATCH',
                                         'route' => ['pizzas.restore', $pizza->id]

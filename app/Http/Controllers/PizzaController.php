@@ -121,6 +121,7 @@ class PizzaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pizza::destroy($id);
+        return redirect('pizzas')->with('message', 'Pizza Eliminada...');
     }
 }
