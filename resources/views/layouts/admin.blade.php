@@ -71,7 +71,7 @@
             </div>
         </nav>
         <div class="container">
-            @include('partials.admin-nav)
+            @include('partials.admin-nav')
             @yield('content')
         </div>
     </div>
