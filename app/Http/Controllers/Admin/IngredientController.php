@@ -26,7 +26,8 @@ class IngredientController extends Controller
 
     public function store(IngredientRequest $ingredientRequest)
     {
-
+        Ingredient::create($ingredientRequest->input());
+        return redirect('admin.ingredients.index')->with('message', 'El ingrediente se ha creado...');
     }
 
 }
