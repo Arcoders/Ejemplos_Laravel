@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Ingredient;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class IngredientController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('admin.ingredients.index', [
+            'ingredients' => Ingredient::paginate(2)
+        ]);
+    }
 }
