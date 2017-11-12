@@ -4,6 +4,15 @@
 
         @include('partials.flash')
 
+        {{
+            link_to_action(
+                'Admin\IngredientController@create',
+                'Crear ingrediente',
+                [],
+                ['class' => 'btn btn-md btn-success pull-right']
+            )
+        }}
+
         <table class="table table-bordered">
             <thead>
                 <tr>
