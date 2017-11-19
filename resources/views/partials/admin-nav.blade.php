@@ -5,5 +5,7 @@
     |
     {{ link_to_action('Admin\IngredientController@index', 'Ingredientes', [], [])  }}
     |
+    {{ link_to_action('Admin\IngredientPizzaController@index', 'Ingredientes y Pizzas', [], [])  }}
+    |
     {{ link_to_action('AdminController@index', 'Administración', [])  }}
 </div>

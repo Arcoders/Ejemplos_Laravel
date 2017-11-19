@@ -40,4 +40,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'administration'], function()
     Route::resource('ingredients', 'Admin\IngredientController', [
         'as' => 'admin'
     ]);
+
+    Route::resource('ingredients_pizzas', 'Admin\IngredientPizzaController', [
+        'as' => 'admin'
+    ]);
 });
