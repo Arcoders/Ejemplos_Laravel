@@ -35,8 +35,8 @@ class IngredientRequest extends FormRequest
                 ];
             case 'PUT':
             case 'PATCH':
-                [
-                    'name' => 'required|max:255|unique:ingredients,name'.$this->segment(3),
+                return [
+                    'name' => 'required|max:255|unique:ingredients,name,'.$this->segment(3),
                     'price' => 'required'
                 ];
             default:break;
