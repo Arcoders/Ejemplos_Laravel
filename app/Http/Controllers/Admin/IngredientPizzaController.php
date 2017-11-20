@@ -75,7 +75,14 @@ class IngredientPizzaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'ingredients' => 'required'
+        ]);
+
+        $pizza = Pizza::find($id);
+        $pizza->ingredients()->sync($request->input('ingredients'));
+        return redirect('administration/ingredients_pizzas')->with('message', 'Ingredientes y pizzas actualizados');
+
     }
 
     /**
