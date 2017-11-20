@@ -15,8 +15,8 @@ class IngredientPizzaController extends Controller
      */
     public function index()
     {
-        $pizzad = Pizza::with('ingredients')->paginate(2);
-        return view('admin.ingredient_pizza.index')->withPizzas($pizzas);
+        $pizzas = Pizza::with('ingredients')->paginate(2);
+        return view('admin.ingredients_pizzas.index')->withPizzas($pizzas);
     }
 
     /**

@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    {{ link_to_action('Admin\PizzaController@index', 'Pizzas', [], [])  }}
+    {{ link_to_action('PizzaController@index', 'Pizzas', [], [])  }}
     |
     {{ link_to_action('Admin\UserController@index', 'Usuarios', [], [])  }}
     |
