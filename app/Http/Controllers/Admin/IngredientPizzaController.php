@@ -93,6 +93,9 @@ class IngredientPizzaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pizza = Pizza::find($id);
+        $pizza->ingredients()->detach();
+        return redirect('administration/ingredients_pizzas')->with('message', 'Relaciones eliminadas');
+
     }
 }
