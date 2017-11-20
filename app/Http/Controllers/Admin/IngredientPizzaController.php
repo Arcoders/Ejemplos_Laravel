@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Ingredient;
 use App\Pizza;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -59,7 +60,10 @@ class IngredientPizzaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pizza = Pizza::find($id);
+        $pizzas = Pizza::pluck('name', 'id');
+        $ingredients = Ingredient::pluck('name', 'id');
+        return view('admin.ingredients.pizzas.edit', compact('pizza', 'pizzas', 'ingredients'));
     }
 
     /**
