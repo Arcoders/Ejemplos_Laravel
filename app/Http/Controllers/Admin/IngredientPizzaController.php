@@ -60,10 +60,10 @@ class IngredientPizzaController extends Controller
      */
     public function edit($id)
     {
-        $pizza = Pizza::find($id);
-        $pizzas = Pizza::pluck('name', 'id');
-        $ingredients = Ingredient::pluck('name', 'id');
-        return view('admin.ingredients.pizzas.edit', compact('pizza', 'pizzas', 'ingredients'));
+        $pizza = Pizza::where('id', $id)->first();
+        $pizzas = Pizza::all()->pluck('name', 'id');
+        $ingredients = Ingredient::all()->pluck('name', 'id');
+        return view('admin.ingredients_pizzas.edit', compact('pizza', 'pizzas', 'ingredients'));
     }
 
     /**
