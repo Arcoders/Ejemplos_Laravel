@@ -53,5 +53,10 @@ class IngredientRequest extends FormRequest
         ];
     }
 
+    public function wantsJson()
+    {
+        return true;
+    }
+
 
 }

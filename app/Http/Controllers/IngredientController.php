@@ -27,14 +27,16 @@ class IngredientController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param IngredientRequest $ingredientRequest
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(IngredientRequest $ingredientRequest)
     {
-        //
+        $ingredient = new Ingredient;
+        $ingredient->create($ingredientRequest->input());
+        return response()->json([
+            'res' => 'Ingrediente guardado correctamente'
+        ]);
     }
 
     /**
