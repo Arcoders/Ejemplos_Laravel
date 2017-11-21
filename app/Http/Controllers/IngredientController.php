@@ -47,7 +47,7 @@ class IngredientController extends Controller
      */
     public function show($id)
     {
-        //
+        return Ingredient::find($id) ?: [];
     }
 
     /**
@@ -68,9 +68,13 @@ class IngredientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(IngredientRequest $ingredientRequest, $id)
     {
-        //
+        $ingredient = Ingredient::find($id);
+        $ingredient->fill($ingredientRequest->all())->save();
+        return response()->json([
+            'res' => 'Ingrediente actualizado'
+        ]);
     }
 
     /**
@@ -81,6 +85,9 @@ class IngredientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ingredient::destroy($id);
+        return response()->json([
+            'res' => 'Ingrediente eliminado'
+        ]);
     }
 }
