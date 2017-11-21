@@ -21,3 +21,8 @@ Route::middleware('auth:api')->get('/pizzas', function()
 {
    return \App\Pizza::with('ingredients')->find(1) ?: [];
 });
+
+Route::group(['middleware' => 'auth:api'], function ()
+{
+   Route::resource('ingredients', 'IngredientController');
+});
